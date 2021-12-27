@@ -1,0 +1,88 @@
+CVE-ID,MITRE Assign Date,CVE Description,Label
+cve-2015-0272,2014-11-18,gnome networkmanag allow remot attack caus denial servic ipv6 traffic disrupt via craft mtu valu ipv6 router advertis RA messag differ vulner cve-2015-8215,f
+cve-2015-0677,2015-01-07,the xml parser cisco adapt secur applianc asa softwar 8.4 8.4 7.28 8.6 8.6 1.17 9.0 9.0 4.33 9.1 9.1 6 9.2 9.2 3.4 9.3 9.3 3 clientless ssl vpn anyconnect ssl vpn anyconnect ikev2 vpn use allow remot attack caus denial servic vpn outag devic reload via craft xml document aka bug ID cscus95290,f
+cve-2015-0932,2015-01-10,the antlab inngat firmwar IG 3100 IG 3101 inngat 3.00 E inngat 3.01 E inngat 3.02 E inngat 3.10 E inngat 3.01 G inngat 3.10 G devic requir authent rsync session allow remot attack read write arbitrari file via tcp traffic port 873,f
+cve-2015-1317,2015-01-22,use-after-fre vulner oxid 1.5.6 1.6.x 1.6.1 allow remot attack caus denial servic crash possibl execut arbitrari code delet webcont renderprocesshost instanc still exist,f
+cve-2015-1432,2015-01-31,the message_opt function includes/ucp/ucp_pm_options.php phpbb 3.0.13 properli valid form key allow remot attack conduct csrf attack chang full folder set via unspecifi vector,f
+cve-2015-1493,2015-02-05,directori travers vulner min_get_slash_argu function lib/configonlylib.php moodl 2.5.9 2.6.x 2.6.8 2.7.x 2.7.5 2.8.x 2.8.3 allow remot authent user read arbitrari file via .. dot dot file paramet demonstr read php script,f
+cve-2015-1483,2015-02-05,symantec netbackup opscent 7.6.0.2 7.6.1 linux unix allow remot attack execut arbitrari javascript code via unspecifi vector,f
+cve-2015-1810,2015-02-17,the hudsonprivatesecurityrealm class jenkin 1.600 lt 1.596.1 restrict access reserv name use `` jenkin user databas '' set allow remot attack gain privileg creat reserv name,f
+cve-2015-2246,2015-03-09,the mewidget modul huawei P7 smartphon softwar p7-l10 v100r001c00b136 earlier version could lead disclosur contact inform,f
+cve-2015-2286,2015-03-12,lms/templates/footer-edx-new.html open edx edx-platform 2015-01-29 properli restrict link password-reset page allow user-assist remot attack discov password-reset token read refer log victim navig page social-shar site,f
+cve-2015-2330,2015-03-18,late tl certif verif webkitgtk+ prior 2.6.6 allow remot attack view secur http request includ exampl secur cooki,f
+cve-2015-2804,2015-03-30,the manag web interfac alcatel-luc omniswitch 6450 6250 6850e 9000e 6400 6855 firmwar 6.6.4.309.r01 6.6.5.x 6.6.5.80.r02 gener weak session identifi allow remot attack hijack arbitrari session via brute forc attack,f
+cve-2015-2792,2015-03-30,the wpml plugin 3.1.9 wordpress properli handl multipl action request allow remot attack bypass nonc check perform arbitrari action via request contain action post paramet action get paramet valid nonc action get paramet,f
+cve-2015-2823,2015-04-01,siemen simat hmi basic panel 2nd gener wincc tia portal 13 sp1 upd2 simat hmi comfort panel wincc tia portal 13 sp1 upd2 simat wincc runtim advanc wincc tia portal 13 sp1 upd2 simat wincc runtim profession wincc tia portal 13 sp1 upd2 simat hmi basic panel 1st gener wincc tia portal simat hmi mobil panel 277 wincc tia portal simat hmi multi panel wincc tia portal simat wincc 7.x 7.3 upd4 allow remot attack complet authent leverag knowledg password hash without knowledg associ password,f
+cve-2015-3003,2015-04-07,junip juno 12.1x44 12.1x44-d45 12.1x46 12.1x46-d30 12.1x47 12.1x47-d20 12.3 12.3r9 12.3x48 12.3x48-d10 13.2 13.2r6 13.3 13.3r5 14.1 14.1r3 14.2 14.2r1 allow local user gain privileg via craft combin cli command argument,f
+cve-2015-3234,2015-04-10,the openid modul drupal 6.x 6.36 7.x 7.38 allow remot attack log user account leverag openid ident certain provid demonstr verisign livejourn stackexchang provid,f
+cve-2015-3280,2015-04-10,openstack comput nova 2014.2.4 juno 2015.1.x 2015.1.2 kilo properli delet instanc comput node allow remot authent user caus denial servic disk consumpt delet instanc resiz state,f
+cve-2015-3308,2015-04-16,doubl free vulner lib/x509/x509_ext.c gnutl 3.3.14 allow remot attack caus denial servic possibl unspecifi impact via craft crl distribut point,f
+cve-2015-3973,2015-05-12,janitza umg 508 509 511 604 605 devic improperli gener session token make easier remot attack determin pin valu via unspecifi comput session-token valu,f
+cve-2015-4426,2015-06-08,sql inject vulner pimcor build 3473 allow remot attack execut arbitrari sql command via filter paramet admin/asset/grid-proxi,f
+cve-2015-4600,2015-06-16,the soapclient implement php 5.4.40 5.5.x 5.5.24 5.6.x 5.6.8 allow remot attack caus denial servic applic crash possibl execut arbitrari code via unexpect data type relat `` type confus '' issu 1 soapclient :__getlastrequest 2 soapclient :__getlastrespons 3 soapclient :__getlastrequesthead 4 soapclient :__getlastresponsehead 5 soapclient :__getcooki 6 soapclient :__setcooki method,f
+cve-2015-4991,2015-06-24,ibm spss model 14.2 fp3 if027 15 fp3 if015 16 fp2 if012 17 fp1 if018 17.1 if008 includ unspecifi cleartext data memori dump allow local user obtain sensit inform read dump file,f
+cve-2015-5084,2015-06-26,the siemen simat wincc Sm rtclient Sm rtclient lite applic 01.00.01.00 android properli store password allow physic proxim attack obtain sensit inform via unspecifi vector,f
+cve-2015-5309,2015-07-01,integ overflow termin emul putti 0.66 allow remot attack caus denial servic memori corrupt possibl execut arbitrari code via ech eras charact escap sequenc larg paramet valu trigger buffer underflow,f
+cve-2015-5363,2015-07-01,the srx network secur daemon nsd junip srx seri servic gateway juno 12.1x44 12.1x44-d50 12.1x46 12.1x46-d35 12.1x47 12.1x47-d25 12.3x48 12.3x48-d15 allow remot dn server caus denial servic crash via craft dn respons,f
+cve-2015-5459,2015-07-08,sql inject vulner advancesearch.class adventnetpasstrix.jar manageengin password manag pro pmp 8.1 build 8101 allow remot authent user execut arbitrari sql command via andor paramet demonstr request state_id/1425543888647/sqladvancedalsearchresult.cc,f
+cve-2015-5600,2015-07-20,the kbdint_next_devic function auth2-chall.c sshd openssh 6.9 properli restrict process keyboard-interact devic within singl connect make easier remot attack conduct brute-forc attack caus denial servic cpu consumpt via long duplic list ssh -okbdinteractivedevic option demonstr modifi client provid differ password pam element list,f
+cve-2015-7194,2015-09-16,buffer underflow libjar mozilla firefox 42.0 firefox esr 38.x 38.4 allow remot attack caus denial servic applic crash possibl execut arbitrari code via craft zip archiv,f
+cve-2015-7273,2015-09-18,dell integr remot access control idrac 7/8 2.21.21.21 xxe,f
+cve-2015-7385,2015-09-28,cross-sit script xss vulner open-xchang OX guard 2.0-rev11 allow remot attack inject arbitrari web script html via uid field pgp public key properli handl `` guard pgp set '',f
+cve-2015-7712,2015-10-05,multipl eval inject vulner mods/_standard/gradebook/edit_marks.php atutor 2.2 earlier allow remot authent user at_priv_gradebook privileg execut arbitrari php code via 1 asc 2 desc paramet,f
+cve-2015-7938,2015-10-22,advantech eki-132x devic firmwar 2015-12-31 allow remot attack bypass authent via unspecifi vector,f
+cve-2015-7908,2015-10-22,honeywel mida ga detector 1.13b3 mida black ga detector 2.13b3 allow remot attack discov cleartext password snif network,f
+cve-2015-8090,2015-11-09,the web server compon tibco loglog uniti 1.1.1 allow remot authent user gain privileg consequ obtain sensit inform via http request,f
+cve-2015-8304,2015-11-20,integ overflow huawei P7 phone softwar p7-l07 v100r001c01b606 allow remot attack gain privileg via craft applic system camera permiss,f
+cve-2016-0757,2015-12-16,openstack imag servic glanc 2015.1.3 kilo 11.0.x 11.0.2 liberti show_multiple_loc enabl allow remot authent user chang imag statu upload new imag data remov last locat imag,f
+cve-2016-1115,2015-12-22,adob coldfus 10 updat 19 11 updat 8 2016 updat 1 mishandl wildcard name field x.509 certif might allow man-in-the-middl attack spoof server via craft certif,f
+cve-2015-8616,2015-12-22,use-after-fre vulner collat :sortwithsortkey function ext/intl/collator/collator_sort.c php 7.x 7.0.1 allow remot attack caus denial servic applic crash possibl unspecifi impact leverag relationship key buffer destroy array,f
+cve-2015-8628,2015-12-23,the 1 special mypag 2 special mytalk 3 special mycontribut 4 special myupload 5 special allmyupload page mediawiki 1.23.12 1.24.x 1.24.5 1.25.x 1.25.4 1.26.x 1.26.1 allow remot attack obtain sensit user login inform via craft link combin page view statist,f
+cve-2016-1245,2015-12-27,It discov zebra daemon quagga 1.20161017 suffer stack-bas buffer overflow process ipv6 neighbor discoveri messag the root caus reli bufsiz compat messag size howev bufsiz system-depend,f
+cve-2016-1371,2016-01-04,clamav aka clam antiviru 0.99.2 allow remot attack caus denial servic applic crash via craft mew packer execut,f
+cve-2016-1550,2016-01-07,An exploit vulner exist messag authent function libntp ntp 4.2.8p4 ntpsec a5fb34b9cc89b92a8fef2f459004865c93bb7f92 An attack send seri craft messag attempt recov messag digest key,f
+cve-2016-1516,2016-01-07,opencv 3.0 doubl free issu allow attack execut arbitrari code,f
+cve-2016-1597,2016-01-12,A logged-in user netiq access govern suit 6.0 6.4 could escal privileg administr,f
+cve-2016-1866,2016-01-13,salt 2015.8.x 2015.8.4 properli handl clear messag minion allow man-in-the-middl attack execut arbitrari code insert packet minion-mast data stream,f
+cve-2016-2025,2016-01-22,hpe servic manag 9.30 9.31 9.32 9.33 9.34 9.35 9.40 9.41 allow remot attack obtain sensit inform via unspecifi vector relat web client servic request catalog mobil compon,f
+cve-2016-2100,2016-01-29,foreman 1.10.3 1.11.0 1.11.0-rc2 allow remot authent user read modifi delet privat bookmark leverag 1 edit_bookmark 2 destroy_bookmark permiss,f
+cve-2016-2117,2016-01-29,the atl2_prob function drivers/net/ethernet/atheros/atlx/atl2.c linux kernel 4.5.2 incorrectli enabl scatter/gath i/o allow remot attack obtain sensit inform kernel memori read packet data,f
+cve-2016-2312,2016-02-09,turn screen plasma-workspac kscreenlock lock screen shown result screen unlock turn screen,f
+cve-2016-2786,2016-02-29,the pxp-agent compon puppet enterpris 2015.3.x 2015.3.3 puppet agent 1.3.x 1.3.6 properli valid server certif might allow remot attack spoof broker execut arbitrari command via craft certif,f
+cve-2016-2953,2016-03-09,ibm connect 4.0 cr4 4.5 cr5 5.0 cr4 requir ssl allow remot attack obtain sensit cleartext inform snif network,f
+cve-2016-3106,2016-03-10,pulp 2.8.3 creat temporari directori CA key gener insecur manner,f
+cve-2016-3104,2016-03-10,mongod mongodb 2.6 use 2.4-style user 2.4 allow remot attack caus denial servic memori consumpt process termin leverag in-memori databas represent authent non-exist databas,f
+cve-2016-3725,2016-03-30,jenkin 2.3 lt 1.651.2 allow remot authent user trigger updat updat site metadata leverag miss permiss check note issu combin dn cach poison caus denial servic servic disrupt,f
+cve-2016-3983,2016-04-08,mcafe advanc threat defens atd 3.4.8.178 might allow remot attack bypass malwar detect leverag inform parent process,f
+cve-2015-8842,2016-04-08,tmpfiles.d/systemd.conf systemd 229 use weak permiss /var/log/journal/ m/system.journ allow local user obtain sensit inform read file,f
+cve-2016-4007,2016-04-13,multipl unspecifi vulner obs-service-extract_fil packag 0.3-5.1 opensus leap 42.1 0.3-3.1 opensus 13.2 allow attack execut arbitrari command via servic definit relat execut unzip `` illeg option '',f
+cve-2016-4319,2016-04-27,atlassian jira server 7.1.9 csrf auditing/set,f
+cve-2016-4317,2016-04-27,atlassian confluenc server 5.9.11 xss viewmyprofile.act page,f
+cve-2016-4500,2016-05-05,moxa uc-7408 lx-plu devic allow remot authent user write firmwar consequ render devic unus leverag root access,f
+cve-2016-4551,2016-05-06,the 1 sap_basi 2 sap_aba compon 7.00 SP level 0031 sap netweav 2004 might allow remot attack spoof IP address written secur audit log via vector relat network landscap aka sap secur note 2190621,f
+cve-2015-8874,2016-05-15,stack consumpt vulner GD php 5.6.12 allow remot attack caus denial servic via craft imagefilltobord call,f
+cve-2016-5014,2016-05-24,In moodl 2.x 3.x unenrol user still receiv event monitor notif even though longer access cours,f
+cve-2016-5172,2016-05-31,the parser googl V8 use googl chrome 53.0.2785.113 mishandl scope allow remot attack obtain sensit inform arbitrari memori locat via craft javascript code,f
+cve-2016-5174,2016-05-31,browser/ui/cocoa/browser_window_controller_private.mm googl chrome 53.0.2785.113 process fullscreen toggl request fullscreen transit allow remot attack caus denial servic unsuppress popup via craft web site,f
+cve-2016-5722,2016-06-17,huawei oceanstor 5300 V3 5500 V3 5600 V3 5800 V3 6800 V3 18800 V3 18500 V3 v300r003c10 send plaintext session token http header allow remot attack conduct replay attack obtain sensit inform snif network,f
+cve-2016-5847,2016-06-26,sap sapcar allow local user chang permiss arbitrari file consequ gain privileg via hard link attack file extract archiv possibl relat sap secur note 2327384,f
+cve-2016-6172,2016-07-06,powerdn aka pdn authorit server 4.0.1 allow remot primari dn server caus denial servic memori exhaust secondari dn server crash via larg 1 axfr 2 ixfr respons,f
+cve-2016-1000009,2016-07-11,tp-link lost control two domain www.tplinklogin.net tplinkextender.net pleas note domain physic print mani devic,f
+cve-2016-1000117,2016-07-20,xss sqli hugeit slideshow v1.0.4,f
+cve-2016-6517,2016-08-01,directori travers vulner liferay 5.1 allow remot attack unspecifi impact via 2E 2E encod dot dot minifierbundledir paramet barebone.jsp,f
+cve-2016-6875,2016-08-18,infinit recurs wddx facebook hhvm 3.15.0 allow attack unspecifi impact via unknown vector,f
+cve-2016-7052,2016-08-23,crypto/x509/x509_vfy.c openssl 1.2i allow remot attack caus denial servic null pointer derefer applic crash trigger crl oper,f
+cve-2016-7095,2016-08-26,expon cm 2.3.9 vulner attack upload malici script file use redirect place script unprotect folder one allow script execut,f
+cve-2016-1000217,2016-09-09,zotpress plugin wordpress sqli zp_get_account,f
+cve-2016-1000213,2016-09-09,rucku wireless h500 web manag interfac csrf,f
+cve-2016-7927,2016-09-09,the ieee 802.11 parser tcpdump 4.9.0 buffer overflow print-802_11.c ieee802_11_radio_print,f
+cve-2016-8579,2016-10-10,docker2aci 0.12.3 infinit loop handl local imag cyclic depend chain,f
+cve-2016-8583,2016-10-10,multipl get paramet vulner scan schedul alienvault ossim usm 5.3.2 vulner reflect xss,f
+cve-2016-8578,2016-10-10,the v9fs_iov_vunmarsh function fsdev/9p-iov-marshal.c qemu aka quick emul allow local guest OS administr caus denial servic null pointer derefer qemu process crash send empti string paramet 9P oper,f
+cve-2016-8795,2016-10-18,huawei cloudengin 12800 softwar v100r002c00 v100r003c00 v100r003c10 v100r005c00 v100r005c10 v100r006c00 cloudengin 5800 softwar v100r002c00 v100r003c00 v100r003c10 v100r005c00 v100r005c10 v100r006c00 cloudengin 6800 softwar v100r002c00 v100r003c00 v100r003c10 v100r005c00 v100r005c10 v100r006c00 cloudengin 7800 softwar v100r003c00 v100r003c10 v100r005c00 v100r005c10 v100r006c00 cloudengin 8800 softwar v100r006c00 secospac usg6600 softwar v500r001c00 allow remot unauthent attack craft specif ipfpm packet trigger integ overflow caus devic reset,f
+cve-2016-8973,2016-10-25,ibm rhapsodi DM 4.0 5.0 6.0 contain undisclos vulner may allow authent user upload infect malici file server ibm refer 1999960,f
+cve-2016-9154,2016-11-03,siemen desigo PX web modul pxa40-w0 pxa40-w1 pxa40-w2 desigo PX autom control pxc00-e.d pxc50-e.d pxc100-e.d pxc200-e.d all firmwar version v6.00.046 desigo PX web modul pxa30-w0 pxa30-w1 pxa30-w2 desigo PX autom control pxc00-u pxc64-u pxc128-u all firmwar version v6.00.046 use pseudo random number gener insuffici entropi gener certif http potenti allow remot attack reconstruct correspond privat key,f
+cve-2016-9563,2016-11-22,bc-bmt-bpm-dsk sap netweav AS java 7.5 allow remot authent user conduct xml extern entiti xxe attack via sap.com~tc~bpem~him~uwlconn~provider~web/bpemuwlconn uri aka sap secur note 2296909,f
+cve-2016-9772,2016-12-02,openaf 1.6.19 earlier allow remot attack obtain sensit directori inform via vector involv 1 client cach partit 2 fileserv vice partit 3 certain rpc respons,f
+cve-2016-10005,2016-12-19,webdynpro sap solman 7.1 7.31 allow remot attack obtain sensit inform via webdynpro/dispatcher/sap.com/caf~eu~gp~example~timeoff~wd request aka sap secur note 2344524,f
+cve-2016-10006,2016-12-19,In owasp antisami 1.5.5 submit special craft input tag support style activ content could bypass librari protect suppli execut code the impact xss,f
