@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
+from sklearn import svm
 from sklearn import metrics
 
 # Columns to drop
@@ -78,6 +78,10 @@ test_y = testing_data['New Label']
 training_data = training_data.drop('MITRE Assign Date', axis=1)
 testing_data = testing_data.drop('MITRE Assign Date', axis=1)
 
+# Drop the 'New Label' from the dataset, since it's the label we want to guess
+training_data = training_data.drop('New Label', axis=1)
+testing_data = testing_data.drop('New Label', axis=1)
+
 # Lists to save results
 ngrams = []
 accuracies = []
@@ -89,7 +93,7 @@ f1s = []
 # Need to look into them what is happening
 for i in range(10):
     # Initialize model and tf-idfs
-    rf = RandomForestClassifier()
+    SVM = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto', probability=True)
     cve_description_tfidf = TfidfVectorizer(
         analyzer='word',
         max_features=(1000 * (i + 1)),
@@ -115,15 +119,13 @@ for i in range(10):
     # Fit th model
     pipe = Pipeline(
         [('tfidf', column_transformer),
-         ('classify', rf)])
+         ('classify', SVM)])
 
     pipe.fit(training_data, training_y)
 
     # Predict the labels on validation dataset
     predictions = pipe.predict(testing_data)
 
-    print(len(predictions))
-    print(len(test_y.tolist()))
     accuracy = metrics.accuracy_score(test_y.tolist(), predictions)
     precision = metrics.precision_score(test_y.tolist(), predictions)
     recall = metrics.recall_score(test_y.tolist(), predictions)
@@ -137,21 +139,3 @@ for i in range(10):
     print("Recall: ", recall)
     print("F1: ", f1)
     print("----------------------------")
-
-# font1 = {'family':'serif','color':'blue','size':20}
-# font2 = {'family':'serif','color':'darkred','size':15}
-#
-# plt.title("Metrics vs N-Grams", fontdict = font1)
-# plt.xlabel("N-Grams", fontdict = font2)
-# plt.ylabel("Metrics", fontdict = font2)
-#
-# plt.plot(ngrams, accuracies, label = "Accuracy", linestyle='-')
-# plt.plot(ngrams, precisions, label = "Precision", linestyle='--')
-# plt.plot(ngrams, recalls, label = "Recall", linestyle='-.')
-# plt.plot(ngrams, f1s, label = "F1", linestyle=':')
-# plt.legend()
-# plt.show()
-
-
-
-
