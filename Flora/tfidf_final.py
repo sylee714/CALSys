@@ -18,20 +18,21 @@ import numpy as np
 
 def tfidf(data, data2, term, N=100):
     # preproscessing
+    # Get the all the rows with the column "term" name
+    # Drop all na, get only the unique, and turn them to a list
     d1 = data[term].dropna().unique().tolist()
+
+    # If the list is empty, add a 'na'
     if len(d1) == 0:
         d1.append('na')
 
+    # Do the same
     d2 = data2[term].dropna().unique().tolist()
-
     if len(d2) == 0:
         d2.append('na')
 
-    # print(term, "data1","\n\n",data[term],"\n\n")
+    # Go thru the list and turn it as one string
     texts = ["".join(t) for t in d1]
-    # print(term,"data1_t","\n\n",texts,"\n\n")
-
-    # print(term,"data2","\n\n",data2[term],"\n\n")
     t1 = ["".join(t) for t in d2]
     texts.extend(t1)
 
@@ -210,10 +211,10 @@ terms = ['cve_description', 'reference_tag', 'reference_source', 'cpe_products',
 #     test = tfidf(test, train, term)
 
 train = tfidf(train, test, 'cve_description')
-# test = tfidf(test, train, 'cve_description')
+test = tfidf(test, train, 'cve_description')
 
-# train.to_csv("training.csv")
-# test.to_csv("testing.csv")
+train.to_csv("training.csv")
+test.to_csv("testing.csv")
 
 # trc = train.columns.tolist()
 # tec = test.columns.tolist()

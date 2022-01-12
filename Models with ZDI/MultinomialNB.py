@@ -4,7 +4,8 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.preprocessing import FunctionTransformer
 from sklearn import metrics
 
 # Columns to drop
@@ -89,11 +90,19 @@ precisions = []
 recalls = []
 f1s = []
 
+# print(type(training_data))
+# print(type(testing_data))
+# training_data = training_data.to_numpy()
+# testing_data = testing_data.to_numpy()
+# Need to dense the data
+# training_data = training_data.toarray()
+# testing_data = testing_data.toarray()
+
 # Results are too good
 # Need to look into them what is happening
 for i in range(10):
     # Initialize model and tf-idfs
-    rf = RandomForestClassifier(random_state=42)
+    model = MultinomialNB()
     cve_description_tfidf = TfidfVectorizer(
         analyzer='word',
         max_features=(1000 * (i + 1)),
@@ -119,7 +128,7 @@ for i in range(10):
     # Fit th model
     pipe = Pipeline(
         [('tfidf', column_transformer),
-         ('classify', rf)])
+         ('classify', model)])
 
     pipe.fit(training_data, training_y)
 
@@ -153,4 +162,3 @@ for i in range(10):
 # plt.plot(ngrams, f1s, label = "F1", linestyle=':')
 # plt.legend()
 # plt.show()
-

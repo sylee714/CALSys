@@ -5,6 +5,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn import metrics
 
 # Columns to drop
@@ -89,11 +90,10 @@ precisions = []
 recalls = []
 f1s = []
 
-# Results are too good
-# Need to look into them what is happening
 for i in range(10):
     # Initialize model and tf-idfs
     rf = RandomForestClassifier(random_state=42)
+    model = AdaBoostClassifier(random_state=42, base_estimator=rf, learning_rate=0.001)
     cve_description_tfidf = TfidfVectorizer(
         analyzer='word',
         max_features=(1000 * (i + 1)),
@@ -119,7 +119,7 @@ for i in range(10):
     # Fit th model
     pipe = Pipeline(
         [('tfidf', column_transformer),
-         ('classify', rf)])
+         ('classify', model)])
 
     pipe.fit(training_data, training_y)
 
@@ -153,4 +153,3 @@ for i in range(10):
 # plt.plot(ngrams, f1s, label = "F1", linestyle=':')
 # plt.legend()
 # plt.show()
-
