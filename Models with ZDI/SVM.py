@@ -1,19 +1,20 @@
-from sklearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline, make_pipeline
 import numpy as np
 import pandas as pd
-from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer, make_column_transformer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn import svm
 from sklearn import metrics
 
 # Columns to drop
-drop_cols = ['CVE-ID', 'ZDI Published Date', 'OG Label', 'In ZDI']
+drop_cols = ['CVE-ID', 'ZDI Published Date', 'OG Label', 'ZDI Description']
 
 # Read the files
-positive_cases = pd.read_csv('../Files/selected_positive_cases_with_zdi.csv')
-selected_negative_cases = pd.read_csv('../Files/selected_negative_cases_with_zdi.csv')
-remaining_negative_cases = pd.read_csv('../Files/remaining_negative_cases_with_zdi.csv')
+positive_cases = pd.read_csv('../Files/selected_positive_cases_with_zdi_sample.csv')
+selected_negative_cases = pd.read_csv('../Files/selected_negative_cases_with_zdi_sample.csv')
+remaining_negative_cases = pd.read_csv('../Files/remaining_negative_cases_with_zdi_sample.csv')
 
 # Drop columns that are not needed
 for col in drop_cols:
@@ -89,53 +90,77 @@ precisions = []
 recalls = []
 f1s = []
 
-# Results are too good
-# Need to look into them what is happening
-for i in range(10):
-    # Initialize model and tf-idfs
-    SVM = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto', probability=True)
-    cve_description_tfidf = TfidfVectorizer(
-        analyzer='word',
-        max_features=(1000 * (i + 1)),
-        max_df=0.8,
-        min_df=5,
-        stop_words='english'
-    )
-    zdi_description_tfidf = TfidfVectorizer(
-        analyzer='word',
-        max_features=(1000 * (i + 1)),
-        max_df=0.8,
-        min_df=5,
-        stop_words='english'
-    )
+features_to_encode = training_data.columns[training_data.dtypes==object].tolist()
+col_trans = make_column_transformer((OneHotEncoder(handle_unknown='ignore'), features_to_encode), remainder="passthrough")
 
-    # Construct the column transformer
-    column_transformer = ColumnTransformer(
-        [('cve_description_tfidf', cve_description_tfidf, 'CVE Description'),
-         ('zdi_description_tfidf', zdi_description_tfidf, 'ZDI Description')],
-        remainder='passthrough'
-    )
+# Model
+SVM = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto', probability=True)
 
-    # Fit th model
-    pipe = Pipeline(
-        [('tfidf', column_transformer),
-         ('classify', SVM)])
+# Fit th model
+pipe = make_pipeline(col_trans, SVM)
+pipe.fit(training_data, training_y)
 
-    pipe.fit(training_data, training_y)
+# Predict the labels on validation dataset
+predictions = pipe.predict(testing_data)
 
-    # Predict the labels on validation dataset
-    predictions = pipe.predict(testing_data)
+accuracy = metrics.accuracy_score(test_y.tolist(), predictions)
+precision = metrics.precision_score(test_y.tolist(), predictions)
+recall = metrics.recall_score(test_y.tolist(), predictions)
+f1 = metrics.f1_score(test_y.tolist(), predictions)
 
-    accuracy = metrics.accuracy_score(test_y.tolist(), predictions)
-    precision = metrics.precision_score(test_y.tolist(), predictions)
-    recall = metrics.recall_score(test_y.tolist(), predictions)
-    f1 = metrics.f1_score(test_y.tolist(), predictions)
+print("Accuracy: ", accuracy)
+print("Precision: ", precision)
+print("Recall: ", recall)
+print("F1: ", f1)
+print("----------------------------")
 
-    print("1-Gram Result")
-    print("Max Feature: ", 1000 * (i + 1))
-    # print("Max Feature: ", max_feature)
-    print("Accuracy: ", accuracy)
-    print("Precision: ", precision)
-    print("Recall: ", recall)
-    print("F1: ", f1)
-    print("----------------------------")
+# # Results are too good
+# # Need to look into them what is happening
+# for i in range(10):
+#     # Initialize model and tf-idfs
+#     SVM = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto', probability=True)
+#     cve_description_tfidf = TfidfVectorizer(
+#         analyzer='word',
+#         max_features=(1000 * (i + 1)),
+#         max_df=0.8,
+#         min_df=5,
+#         stop_words='english'
+#     )
+#     zdi_description_tfidf = TfidfVectorizer(
+#         analyzer='word',
+#         max_features=(1000 * (i + 1)),
+#         max_df=0.8,
+#         min_df=5,
+#         stop_words='english'
+#     )
+#
+#     # Construct the column transformer
+#     column_transformer = ColumnTransformer(
+#         [('cve_description_tfidf', cve_description_tfidf, 'CVE Description'),
+#          ('zdi_description_tfidf', zdi_description_tfidf, 'ZDI Description')],
+#         remainder='passthrough'
+#     )
+#
+#     # Fit th model
+#     pipe = Pipeline(
+#         [('tfidf', column_transformer),
+#          ('classify', SVM)])
+#
+#     pipe.fit(training_data, training_y)
+#
+#     # Predict the labels on validation dataset
+#     predictions = pipe.predict(testing_data)
+#
+#     accuracy = metrics.accuracy_score(test_y.tolist(), predictions)
+#     precision = metrics.precision_score(test_y.tolist(), predictions)
+#     recall = metrics.recall_score(test_y.tolist(), predictions)
+#     f1 = metrics.f1_score(test_y.tolist(), predictions)
+#
+#     print("1-Gram Result")
+#     print("Max Feature: ", 1000 * (i + 1))
+#     # print("Max Feature: ", max_feature)
+#     print("Accuracy: ", accuracy)
+#     print("Precision: ", precision)
+#     print("Recall: ", recall)
+#     print("F1: ", f1)
+#     print("----------------------------")

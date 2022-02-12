@@ -9,12 +9,12 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn import metrics
 
 # Columns to drop
-drop_cols = ['CVE-ID', 'ZDI Published Date', 'OG Label', 'In ZDI']
+drop_cols = ['CVE-ID', 'ZDI Published Date', 'OG Label', 'In ZDI', 'ZDI Description']
 
 # Read the files
-positive_cases = pd.read_csv('../Files/selected_positive_cases_with_zdi.csv')
-selected_negative_cases = pd.read_csv('../Files/selected_negative_cases_with_zdi.csv')
-remaining_negative_cases = pd.read_csv('../Files/remaining_negative_cases_with_zdi.csv')
+positive_cases = pd.read_csv('../Files/selected_positive_cases_with_zdi_sample.csv')
+selected_negative_cases = pd.read_csv('../Files/selected_negative_cases_with_zdi_sample.csv')
+remaining_negative_cases = pd.read_csv('../Files/remaining_negative_cases_with_zdi_sample.csv')
 
 # Drop columns that are not needed
 for col in drop_cols:
