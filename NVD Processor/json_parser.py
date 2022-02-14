@@ -1,17 +1,50 @@
 import json
+import os
+import pandas as pd
 
-dir_path = "../Files/NVD-JSON"
+# Dir path that contains all the json files
+dir_path = "../Files/NVD-JSON/"
 
-file_path = '../Files/NVD-JSON/nvdcve-1.1-2015.json'
+# Get all the files
+files = os.listdir(dir_path)
 
-f = open(file_path)
+# Initialize a list to store all the cve-ids
+patched_cves = []
 
-data = json.load(f)
+# Go thru each file
+for f in files:
+    # Open the json file
+    json_file = open(dir_path + f)
+    data = json.load(json_file)
 
-cve_list = data["CVE_Items"]
+    # Get all the cves
+    cve_list = data["CVE_Items"]
+    
+    # Go thru each cve
+    for cve in cve_list:
+        # Get the CVE-ID
+        cve_id = cve["cve"]["CVE_data_meta"]["ID"]
 
-for cve in cve_list:
-    # print(cve["references"])
-    ref = cve["cve"]["references"]["reference_data"]
-    print(ref)
-    break
+        # Get the refs
+        refs = cve["cve"]["references"]["reference_data"]
+        cve_patched = False
+
+        # Go thru each ref
+        for ref in refs:
+            tags = ref['tags']
+            # Go thru each tag
+            for tag in tags:
+                # Check if a ref is Patch
+                if "Patch" in tag:
+                    cve_patched = True
+                    break
+
+        # Add the cve-id that has patch refs
+        if cve_patched:
+            patched_cves.append(cve_id)
+
+data = {"CVE ID": patched_cves}
+df = pd.DataFrame(data)
+df.to_csv("patched_cves.csv", index=False)
+
+
