@@ -1,0 +1,1117 @@
+<html lang="en"><head>
+
+
+
+
+<title>NVD - CVE-2016-3168</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link href="/site-scripts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<link href="/site-media/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="/site-media/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+<link href="/site-scripts/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet">
+
+
+<link href="/site-media/css/nist-fonts.css" type="text/css" rel="stylesheet">
+<link href="/site-media/css/base-style.css" type="text/css" rel="stylesheet">
+<link href="/site-media/css/media-resize.css" type="text/css" rel="stylesheet">
+
+
+<meta name="theme-color" content="#000000">
+
+
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="/site-scripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="/site-scripts/jquery-visible/jquery.visible.min.js" type="text/javascript"></script>
+<script src="/site-scripts/underscore/underscore-min.js" type="text/javascript"></script>
+<script src="/site-media/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="/site-scripts/moment/min/moment.min.js" type="text/javascript"></script>
+<script src="/site-scripts/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+
+
+<script src="/site-media/js/megamenu.js" type="text/javascript"></script>
+<script src="/site-media/js/nist-exit-script.js" type="text/javascript"></script>
+<script src="/site-media/js/forms.js" type="text/javascript"></script>
+<!--
+<script th:src="@{/site-media/js/federated-analytics.all.min.js?agency=NIST&subagency=nvd&pua=UA-37115410-41&yt=true}" type="text/javascript" id="_fed_an_js_tag"></script>
+-->
+<script src="/site-media/js/federated-analytics.all.min.js?agency=NIST&amp;subagency=nvd&amp;pua=UA-37115410-41&amp;yt=true" type="text/javascript" id="_fed_an_js_tag"></script>
+
+
+	
+	
+    <noscript>
+        <style id="antiClickjackNoScript">
+            body > * { display: block !important; }
+            #antiClickjack {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+    <script type="text/javascript" id="antiClickjackScript">
+        if (self === top) {
+            // no clickjacking
+            var antiClickjack = document.getElementById("antiClickjack"); antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            setTimeout( tryForward(), 5000);
+        }
+        
+        function tryForward(){
+        	top.location = self.location;
+        }
+    </script>
+ 
+<meta charset="UTF-8">
+ 
+<link href="/site-media/css/nvd-style.css" type="text/css" rel="stylesheet">
+ 
+<link href="/site-media/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" type="image/png" sizes="180x180">
+ 
+<link href="/site-media/images/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+ 
+<link href="/site-media/images/favicons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+ 
+<link href="/site-media/images/favicons/manifest.json" rel="manifest">
+ 
+<link href="/site-media/images/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#000000">
+ 
+<link href="/site-media/images/favicons/favicon.ico" rel="shortcut icon">
+ 
+<meta name="msapplication-config" content="/site-media/images/favicons/browserconfig.xml">
+ 
+<link href="/site-media/images/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+ 
+<link href="/site-media/images/favicons/favicon.ico" rel="icon" type="image/x-icon">
+ 
+<meta charset="UTF-8">
+ 
+<link href="/site-media/js/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" type="text/css" rel="stylesheet">
+ 
+<script src="/site-media/js/vulnerability/vulnDetail.js" type="text/javascript"></script>
+ 
+<script src="/site-media/js/vulnerability/cvssVulnDetail.js" type="text/javascript"></script>
+ 
+</head>
+
+<body>
+	<div>
+	<div id="antiClickjack" style="display: none">
+		<h1>You are viewing this page in an unauthorized frame window.</h1>
+		<p>
+			This is a potential security issue, you are being redirected to <a href="https://nvd.nist.gov">https://nvd.nist.gov</a>
+		</p>
+	</div>
+	
+   	<div>
+		<section class="usa-banner" aria-label="Official government website">
+		    <div class="usa-accordion container">
+		        <header class="usa-banner__header">
+		            <noscript>
+		                <p style="font-size: 0.85rem; font-weight: bold;">You have JavaScript disabled. This site requires JavaScript to be enabled for complete site functionality.</p>
+		            </noscript>
+		            <img class="usa-banner__header-flag" src="/site-media/images/usbanner/us_flag_small.png" alt="U.S. flag">
+		            &nbsp;
+		            <span class="usa-banner__header-text">An official website of the United States government</span>
+		
+		            <button id="gov-banner-button" class="usa-accordion__button usa-banner__button" data-toggle="collapse" data-target="#gov-banner" aria-expanded="true" aria-controls="gov-banner">
+		                <span class="usa-banner__button-text">Here's how you know</span>
+		            </button>
+		        </header>
+		        <div class="usa-banner__content usa-accordion__content collapse" role="tabpanel" id="gov-banner" aria-expanded="true">
+		            <div class="row">
+		                <div class="col-md-5 col-sm-12">
+		                    <div class="row">
+		                        <div class="col-sm-2 col-xs-3">
+		                            <img class="usa-banner__icon usa-media-block__img" src="/site-media/images/usbanner/icon-dot-gov.svg" alt="Dot gov">
+		                        </div>
+		                        <div class="col-sm-10 col-xs-9">
+		                            <p>
+		                                <strong>Official websites use .gov</strong>
+		                                <br>
+		                                A <strong>.gov</strong> website belongs to an official government organization in the United States.
+		                            </p>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-md-5 col-sm-12">
+		                    <div class="row">
+		                        <div class="col-sm-2 col-xs-3">
+		                            <img class="usa-banner__icon usa-media-block__img" src="/site-media/images/usbanner/icon-https.svg" alt="Https">
+		                        </div>
+		                        <div class="col-sm-10 col-xs-9">
+		                        <p>
+		                            <strong>Secure .gov websites use HTTPS</strong>
+		                            <br>
+		                            A <strong>lock</strong> (<img class="usa-banner__lock" src="/site-media/images/usbanner/lock.svg" alt="Dot gov">) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+		                        </p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section>
+	</div>
+	
+	<nav id="navbar" class="navbar">
+		<div id="nist-menu-container" class="container">
+			<div class="row">
+				<!-- Brand -->
+				<div class="col-xs-6 col-md-4 navbar-header">
+					<a class="navbar-brand" href="https://www.nist.gov" target="_blank" id="navbar-brand-image"> <img src="/site-media/images/svg/nist-logo.svg" alt="National Institute of Standards and Technology" width="110" height="30">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-8 navbar-nist-logo">
+					<span id="nvd-menu-button" class="pull-right"> <a href="#">
+							<span class="fa fa-bars"></span> <span id="nvd-menu-full-text"><span class="hidden-xxs">NVD </span>MENU</span>
+					</a>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-menu-row container">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div id="main-menu-drop" class="col-lg-12" style="display: none;">
+				<ul>
+
+					<li><a href="/general"> General <span class="expander fa fa-plus" id="main-menu-expander-general" data-expander-name="general" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="general">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/nvd-dashboard">NVD Dashboard</a>
+									</p>
+									<p>
+										<a href="/general/news">News</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/email-list">Email List</a>
+									</p>
+									<p>
+										<a href="/general/faq">FAQ</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/visualizations">Visualizations</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+					<li><a href="/vuln"> Vulnerabilities <span class="expander fa fa-plus" id="main-menu-expander-vulnerabilities" data-expander-name="vulnerabilities" data-expanded="false">
+								<span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="vulnerabilities">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/search">Search &amp; Statistics</a>
+									</p>
+									<p>
+										<a href="/vuln/full-listing">Full Listing</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/categories">Categories</a>
+									</p>
+									<p>
+										<a href="/vuln/data-feeds">Data Feeds</a>
+									</p>
+
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/vendor-comments">Vendor Comments</a>
+									</p>
+									<p>
+										<a href="/vuln/cvmap">CVMAP</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+					<li><a href="/vuln-metrics/cvss#"> Vulnerability Metrics <span class="expander fa fa-plus" id="main-menu-expander-metrics" data-expander-name="metrics" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="metrics">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln-metrics/cvss/v3-calculator">CVSS V3
+											Calculator</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln-metrics/cvss/v2-calculator">CVSS V2
+											Calculator</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4"></div>
+							</div>
+						</div></li>
+					<li><a href="/products"> Products <span class="expander fa fa-plus" id="main-menu-expander-products" data-expander-name="products" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="products">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe">CPE Dictionary</a>
+									</p>
+									<p>
+										<a href="/products/cpe/search">CPE Search</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe/statistics">CPE Statistics</a>
+									</p>
+									<p>
+										<a href="/products/swid">SWID</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4"></div>
+							</div>
+						</div></li>
+					<li>
+						<a href="/developers">Developers<span class="expander fa fa-plus" id="main-menu-expander-developers" data-expander-name="developers" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+							</span>
+						</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="developers">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers">Start Here</a>
+									</p>
+									<p>
+										<a href="/developers/request-an-api-key">Request an API Key</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers/vulnerabilities">Vulnerabilities</a>
+									</p>
+									<p>
+										<a href="/developers/products">Products</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers/terms-of-use">Terms of Use</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li><a href="/info"> Contact NVD </a></li>
+					<li><a href="/other"> Other Sites <span class="expander fa fa-plus" id="main-menu-expander-othersites" data-expander-name="otherSites" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="otherSites">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="https://ncp.nist.gov">Checklist (NCP) Repository</a>
+									</p>
+									<p>
+										<a href="https://ncp.nist.gov/cce">Configurations (CCE)</a>
+									</p>
+									<p>
+										<a href="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/800-53">800-53 Controls</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="https://csrc.nist.gov/projects/scap-validation-program">SCAP
+											Validated Tools</a>
+									</p>
+									<p>
+										<a href="https://csrc.nist.gov/projects/security-content-automation-protocol">SCAP</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="https://csrc.nist.gov/projects/united-states-government-configuration-baseline">USGCB</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+
+					<li><a href="/search"> Search <span class="expander fa fa-plus" id="main-menu-expander-search" data-expander-name="search" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="search">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/search">Vulnerability Search</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe/search">CPE Search</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+
+
+
+
+				</ul>
+			</div>
+			<!-- /#mobile-nav-container -->
+		</div>
+
+	</nav>
+	<section id="itl-header" class="has-menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					<h2 class="hidden-xs hidden-sm">
+						<a href="https://www.nist.gov/itl" target="_blank">Information Technology Laboratory</a>
+					</h2>
+			 		<h1 class="hidden-xs hidden-sm">
+						<a id="nvd-header-link" href="/">National Vulnerability Database</a>
+					</h1>
+					<h1 class="hidden-xs text-center hidden-md hidden-lg">National Vulnerability Database</h1>
+					<h1 class="hidden-sm hidden-md hidden-lg text-center">NVD</h1>
+				
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<a style="width: 100%; text-align: center; display: block;"><img class="nvd-header-logo" alt="NVD Logo" src="/site-media/images/NVD-white-55.png"></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		
+</div>
+	<div id="body-section" class="container">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li>
+					<a href="/vuln" class="CMSBreadCrumbsLink">Vulnerabilities</a>
+
+				</li>
+			</ol>
+		</div>
+		<div>
+	
+		<div>
+    
+		    
+		
+    </div>
+	
+		
+		<div id="vulnDetailPanel">
+			<table id="vulnDetailTableView" style="border-collapse: collapse;">
+				<tbody><tr>
+					<td colspan="2">
+
+						<h2 data-testid="page-header">
+							<i class="fa fa-bug fa-flip-vertical"></i><span data-testid="page-header-vuln-id">CVE-2016-3168</span>
+							Detail
+						</h2>
+						<div class="row">
+
+							<div class="col-lg-9 col-md-7 col-sm-12">
+								
+ 
+								
+									<h3 id="vulnDescriptionTitle" data-testid="vuln-description-title">Current Description </h3>
+								<p data-testid="vuln-description">The System module in Drupal 6.x before 6.38 and 7.x before 7.43 might allow remote attackers to hijack the authentication of site administrators for requests that download and run files with arbitrary JSON-encoded content, aka a "reflected file download vulnerability."</p><br>
+								
+								
+
+								 
+									<p>
+										<a href="#vulnCurrentDescriptionTitle" style="text-decoration: underline" id="showVulnAnalysis"><i class="fa fa-plus"></i>View Analysis Description</a>
+									</p>
+									<div id="vulnAnalysisDescription" style="display: none;">
+										<h3 data-testid="vuln-analysis-description-title">Analysis
+											Description</h3>
+										<p data-testid="vuln-analysis-description">The System module in Drupal 6.x before 6.38 and 7.x before 7.43 might allow remote attackers to hijack the authentication of site administrators for requests that download and run files with arbitrary JSON-encoded content, aka a "reflected file download vulnerability."</p>
+										
+
+									</div>
+								
+								
+
+								<div id="vulnCvssPanel" data-testid="vuln-cvss-container" class="row bs-callout bs-callout-success cvssVulnDetail">
+									<h3 style="display: inline">Severity</h3>
+									 
+									<div id="cvssVulnDetailBtn" class="btn-group">
+										<button id="btn-cvss3" type="button" title="Click here to view CVSS 3.x score" class="btn btn-active btn-lg cvssBtn" value="2.0">CVSS
+											Version 3.x</button>
+										<button id="btn-cvss2" type="button" title="Click here to view CVSS 2.0 score" class="btn btn-default btn-lg cvssBtn" value="3.x">CVSS
+											Version 2.0</button>
+
+										<br> <br>
+									</div>
+
+
+
+									<div class="container-fluid" id="Vuln3CvssPanel" data-testid="vuln-cvss3-panel">
+										
+										<strong>CVSS 3.x Severity and Metrics:</strong>
+										<div class="row no-gutters">
+											<br>
+
+											<div class="col-lg-3 col-sm-6">
+												<div class="row">
+													<div class="col-lg-3 col-sm-6">
+														<img src="/site-media/images/NVD_NVD_Stack_Plain.svg" class="cvssNvdIcon" alt="NIST CVSS score">
+
+
+													</div>
+													<div class="col-lg-9 col-sm-6">
+														<strong>NIST:</strong>&nbsp;<span class="wrapData" data-testid="vuln-cvss3-source-nvd">NVD</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-sm-6">
+												<span><strong>Base
+														Score:</strong>&nbsp;<span class="severityDetail"> <a id="Cvss3NistCalculatorAnchor" href="/vuln-metrics/cvss/v3-calculator?name=CVE-2016-3168&amp;vector=AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H&amp;version=3.0&amp;source=NIST" data-testid="vuln-cvss3-panel-score" class="label label-warning">6.4 MEDIUM</a>
+												</span></span> 
+
+											</div>
+											<div class="col-lg-6 col-sm-12">
+												<span><strong>Vector:</strong>&nbsp;
+													<span data-testid="vuln-cvss3-nist-vector" class="tooltipCvss3NistMetrics" data-original-title="" title="">CVSS:3.0/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H</span></span>
+												 <input type="hidden" id="nistV3MetricHidden" value="<span id = 'nistV3Metric' style = 'display:none' > <strong style ='font-size:1.2em' > CVSS v3.0 Severity and Metrics:</strong> <p data-testid='vuln-cvssv3-score-container'> <strong>Base Score: </strong> <span data-testid='vuln-cvssv3-base-score'>6.4 </span><span data-testid='vuln-cvssv3-base-score-severity'>MEDIUM</span> <br /> <strong>Vector: </strong> <span data-testid='vuln-cvssv3-vector'> AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H </span> <br /> <strong>Impact Score: </strong> <span data-testid='vuln-cvssv3-impact-score'> 5.9 </span> <br /> <strong>Exploitability Score: </strong> <span data-testid='vuln-cvssv3-exploitability-score'> 0.5 </span> </p> <hr /> <p data-testid='vuln-cvssv3-metrics-container'> <strong>Attack Vector (AV): </strong> <span data-testid='vuln-cvssv3-av'> Network </span> <br /> <strong>Attack Complexity (AC): </strong> <span data-testid='vuln-cvssv3-ac'> High </span> <br /> <strong>Privileges Required (PR): </strong> <span data-testid='vuln-cvssv3-pr'> High </span> <br /> <strong>User Interaction (UI): </strong> <span data-testid='vuln-cvssv3-ui'> Required </span> <br /> <strong>Scope (S): </strong> <span data-testid='vuln-cvssv3-s'> Unchanged </span> <br /> <strong>Confidentiality (C): </strong> <span data-testid='vuln-cvssv3-c'> High </span> <br /> <strong>Integrity (I): </strong> <span data-testid='vuln-cvssv3-i'> High </span> <br /> <strong>Availability (A): </strong> <span data-testid='vuln-cvssv3-a'> High </span> </p> </span> ">
+
+											</div>
+
+
+										</div>
+
+										
+									
+										<div id="cvss3FootNote" class="cvssFootNote">
+										<br><br>
+										 <span id="cvss3FootNoteSection"><i>NVD Analysts use publicly available information to associate vector strings and CVSS scores. We also display any CVSS information provided within the CVE List from the CNA.</i><br><br><i>Note: NVD Analysts have published a CVSS score for this CVE based on publicly available information at the time of analysis. The CNA has not provided a score within the CVE List.</i><br><br></span>
+										</div>
+									</div>
+
+
+									<div class="container-fluid" id="Vuln2CvssPanel" data-testid="vuln-cvss2-panel" style="display: none">
+										
+										<strong>CVSS 2.0 Severity and Metrics:</strong> <br> <br>
+										<div class="row no-gutters">
+											<div class="col-lg-3 col-sm-6">
+												<div class="row">
+													<div class="col-lg-3 col-sm-6">
+														<img src="/site-media/images/NVD_NVD_Stack_Plain.svg" class="cvssNvdIcon" alt="National Institute of Standards and Technology">
+													</div>
+													<div class="col-lg-9 col-sm-6">
+														<strong>NIST:</strong>&nbsp;<span data-testid="vuln-cvss2-source-nvd">NVD</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-sm-6">
+												<span><strong>Base
+														Score:</strong>&nbsp;<span class="severityDetail"> <a id="Cvss2CalculatorAnchor" href="/vuln-metrics/cvss/v2-calculator?name=CVE-2016-3168&amp;vector=(AV:N/AC:M/Au:S/C:C/I:C/A:C)&amp;version=2.0&amp;source=NIST" class="label label-danger">8.5 HIGH</a></span></span>
+												
+
+											</div>
+											<div class="col-lg-6 col-sm-12">
+												<span><strong>Vector:</strong>&nbsp;
+													<span data-testid="vuln-cvss2-panel-vector" class="tooltipCvss2NistMetrics" data-original-title="" title="">(AV:N/AC:M/Au:S/C:C/I:C/A:C)</span></span>  <input type="hidden" id="nistV2MetricHidden" value="<span id ='cnaV2Metric' style='display:none'><strong style='font-size:1.2em' >CVSS v2.0 Severity and Metrics:</strong><p data-testid='vuln-cvssv2-score-container'><strong>Base Score: </strong><span data-testid='vuln-cvssv2-base-score'>8.5  </span><span data-testid='vuln-cvssv2-base-score-severity'>HIGH</span><br /><strong>Vector: </strong><span data-testid='vuln-cvssv2-vector'>(AV:N/AC:M/Au:S/C:C/I:C/A:C)</span><br /><strong>Impact Subscore: </strong><span data-testid='vuln-cvssv2-impact-subscore'>10.0</span><br /><strong>Exploitability Subscore: </strong><span data-testid='vuln-cvssv2-exploitability-score'>6.8</span></p><hr /><p data-testid='vuln-cvssv2-metrics-container'><strong>Access Vector (AV): </strong><span data-testid='vuln-cvssv2-av'>Network</span><br /><strong>Access Complexity (AC): </strong><span data-testid='vuln-cvssv2-ac'>Medium</span><br /><strong>Authentication (AU): </strong><span data-testid='vuln-cvssv2-au'>Single</span><br /><strong>Confidentiality (C): </strong><span data-testid='vuln-cvssv3-c'>Complete</span><br /><strong>Integrity (I): </strong><span data-testid='vuln-cvssv2-i'>Complete</span><br /><strong>Availability (A): </strong><span data-testid='vuln-cvssv2-a'>Complete</span><br /><strong>Additional Information: </strong><br/><span data-testid='vuln-cvssv2-additional'>  Victim must voluntarily interact with attack mechanism<br/>Allows unauthorized disclosure of information<br/>Allows unauthorized modification<br/>Allows disruption of service<br/></span></p></span>">
+											</div>
+										</div>
+										
+										<div id="cvss2FootNote" class="cvssFootNote">
+										<br><br>
+										 <span id="cvss2FootNoteSection"><i>NVD Analysts use publicly available information to associate vector strings and CVSS scores. We also display any CVSS information provided within the CVE List from the CNA.</i><br><br><i>Note: NVD Analysts have published a CVSS score for this CVE based on publicly available information at the time of analysis. The CNA has not provided a score within the CVE List.</i><br><br></span>
+										</div>
+									</div>
+								</div>
+
+
+
+								<div class="row col-sm-12">
+									
+									
+									
+									<div id="vulnHyperlinksPanel">
+										<h3>References to Advisories, Solutions, and Tools</h3>
+										<p>
+											By selecting these links, you will be leaving NIST webspace.
+											We have provided these links to other web sites because they
+											may have information that would be of interest to you. No
+											inferences should be drawn on account of other sites being
+											referenced, or not, from this page. There may be other web
+											sites that are more appropriate for your purpose. NIST does
+											not necessarily endorse the views expressed, or concur with
+											the facts presented on these sites. Further, NIST does not
+											endorse any commercial products that may be mentioned on
+											these sites. Please address comments about this page to <a href="mailto:nvd@nist.gov">nvd@nist.gov</a>.
+										</p>
+
+
+										<table class="table table-striped table-condensed table-bordered detail-table" data-testid="vuln-hyperlinks-table">
+											<thead>
+												<tr>
+													<th>Hyperlink</th>
+													<th>Resource</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr data-testid="vuln-hyperlinks-row-0">
+													<td data-testid="vuln-hyperlinks-link-0"><a href="http://www.debian.org/security/2016/dsa-3498" target="_blank" class="external">http://www.debian.org/security/2016/dsa-3498</a></td>
+
+													<td data-testid="vuln-hyperlinks-resType-0">
+														
+													</td>
+												</tr>
+
+												<tr data-testid="vuln-hyperlinks-row-1">
+													<td data-testid="vuln-hyperlinks-link-1"><a href="http://www.openwall.com/lists/oss-security/2016/02/24/19" target="_blank" class="external">http://www.openwall.com/lists/oss-security/2016/02/24/19</a></td>
+
+													<td data-testid="vuln-hyperlinks-resType-1">
+														
+													</td>
+												</tr>
+
+												<tr data-testid="vuln-hyperlinks-row-2">
+													<td data-testid="vuln-hyperlinks-link-2"><a href="http://www.openwall.com/lists/oss-security/2016/03/15/10" target="_blank" class="external">http://www.openwall.com/lists/oss-security/2016/03/15/10</a></td>
+
+													<td data-testid="vuln-hyperlinks-resType-2">
+														
+													</td>
+												</tr>
+
+												<tr data-testid="vuln-hyperlinks-row-3">
+													<td data-testid="vuln-hyperlinks-link-3"><a href="https://www.drupal.org/SA-CORE-2016-001" target="_blank" class="external">https://www.drupal.org/SA-CORE-2016-001</a></td>
+
+													<td data-testid="vuln-hyperlinks-resType-3">
+														<span>
+															<span class="badge">Patch</span>&nbsp;
+														</span><span>
+															<span class="badge">Vendor Advisory</span>&nbsp;
+														</span>
+													</td>
+												</tr>
+
+
+
+											</tbody>
+										</table>
+
+
+
+									</div>
+
+
+
+									<div id="vulnTechnicalDetailsDiv" class="technicalDetails" data-testid="vuln-technical-details-container">
+										<h3>Weakness Enumeration</h3>
+
+
+
+										<table class="table table-striped table-condensed table-bordered detail-table" data-testid="vuln-CWEs-table">
+											<thead>
+												<tr>
+													<th>CWE-ID</th>
+													<th>CWE Name</th>
+													<th>Source</th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<tr data-testid="vuln-CWEs-row-0">
+													<td data-testid="vuln-CWEs-link-0">
+														<a href="http://cwe.mitre.org/data/definitions/254.html" target="_blank">CWE-254</a>
+														
+													</td>
+													<td data-testid="vuln-CWEs-link-0">7PK - Security Features</td>
+
+													<td data-testid="vuln-cwes-assigner-0">
+														<span class="cweSource" data-testid="vuln-cwes-assigner-0-0">
+														<img src="/site-media/images/NVD_NVD_Stack_Plain.svg" class="cweNvdIcon" alt="cwe source acceptance level">
+														
+														<span>NIST  </span>
+														</span>
+														
+														</td>
+
+												</tr>
+
+											</tbody>
+										</table>
+
+									</div>
+
+
+
+									<div>
+										<h3>
+											Known Affected Software Configurations <small> <a id="toggleCpeVersion" href="#vulnConfigurationsArea">Switch
+													to CPE 2.2</a></small>
+										</h3>
+										<span id="vulnConfigurationsArea"></span>
+										<input type="hidden" id="cveIdHidden" value="CVE-2016-3168">
+								
+										 <div>
+	
+   		<div id="vulnCpeTreeLoading" style="display: none;"><h3>CPEs loading, please wait.</h3></div>
+        <div id="vulnCpeTree" style=""> <strong data-testid="vuln-software-config-1">Configuration 1</strong> (<small><a href="#toggleConfig1" style="text-decoration: underline" id="toggle-configuration-1" data-toggle-config="config-div-1"> hide </a></small>)<br><div id="config-div-1"> <table class="table table-bordered table-hover table-condensed basic"><tbody><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-0"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607013" data-cpe-list-toggle="3607013" match-testid="vuln-software-cpe-1-0-0" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607013"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-1"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:beta1:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607012" data-cpe-list-toggle="3607012" match-testid="vuln-software-cpe-1-0-1" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607012"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-2"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:beta2:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607011" data-cpe-list-toggle="3607011" match-testid="vuln-software-cpe-1-0-2" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607011"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-3"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:beta3:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607010" data-cpe-list-toggle="3607010" match-testid="vuln-software-cpe-1-0-3" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607010"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-4"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:beta4:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3611472" data-cpe-list-toggle="3611472" match-testid="vuln-software-cpe-1-0-4" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3611472"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-5"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:dev:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607742" data-cpe-list-toggle="3607742" match-testid="vuln-software-cpe-1-0-5" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607742"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-6"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:rc1:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609744" data-cpe-list-toggle="3609744" match-testid="vuln-software-cpe-1-0-6" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609744"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-7"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:rc2:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607741" data-cpe-list-toggle="3607741" match-testid="vuln-software-cpe-1-0-7" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607741"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-8"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:rc3:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606836" data-cpe-list-toggle="3606836" match-testid="vuln-software-cpe-1-0-8" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606836"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-9"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.0:rc4:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606835" data-cpe-list-toggle="3606835" match-testid="vuln-software-cpe-1-0-9" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606835"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-10"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.1:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606834" data-cpe-list-toggle="3606834" match-testid="vuln-software-cpe-1-0-10" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606834"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-11"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.2:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607738" data-cpe-list-toggle="3607738" match-testid="vuln-software-cpe-1-0-11" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607738"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-12"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.3:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607735" data-cpe-list-toggle="3607735" match-testid="vuln-software-cpe-1-0-12" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607735"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-13"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.4:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609735" data-cpe-list-toggle="3609735" match-testid="vuln-software-cpe-1-0-13" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609735"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-14"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.5:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606828" data-cpe-list-toggle="3606828" match-testid="vuln-software-cpe-1-0-14" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606828"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-15"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.6:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606827" data-cpe-list-toggle="3606827" match-testid="vuln-software-cpe-1-0-15" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606827"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-16"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.7:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606826" data-cpe-list-toggle="3606826" match-testid="vuln-software-cpe-1-0-16" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606826"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-17"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.8:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606825" data-cpe-list-toggle="3606825" match-testid="vuln-software-cpe-1-0-17" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606825"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-18"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.9:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606824" data-cpe-list-toggle="3606824" match-testid="vuln-software-cpe-1-0-18" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606824"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-19"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.10:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606833" data-cpe-list-toggle="3606833" match-testid="vuln-software-cpe-1-0-19" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606833"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-20"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.11:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607740" data-cpe-list-toggle="3607740" match-testid="vuln-software-cpe-1-0-20" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607740"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-21"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.12:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609743" data-cpe-list-toggle="3609743" match-testid="vuln-software-cpe-1-0-21" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609743"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-22"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.13:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607739" data-cpe-list-toggle="3607739" match-testid="vuln-software-cpe-1-0-22" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607739"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-23"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.14:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609742" data-cpe-list-toggle="3609742" match-testid="vuln-software-cpe-1-0-23" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609742"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-24"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.15:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607009" data-cpe-list-toggle="3607009" match-testid="vuln-software-cpe-1-0-24" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607009"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-25"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.16:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607008" data-cpe-list-toggle="3607008" match-testid="vuln-software-cpe-1-0-25" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607008"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-26"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.17:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607007" data-cpe-list-toggle="3607007" match-testid="vuln-software-cpe-1-0-26" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607007"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-27"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.18:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607006" data-cpe-list-toggle="3607006" match-testid="vuln-software-cpe-1-0-27" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607006"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-28"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.19:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609741" data-cpe-list-toggle="3609741" match-testid="vuln-software-cpe-1-0-28" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609741"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-29"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.20:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609740" data-cpe-list-toggle="3609740" match-testid="vuln-software-cpe-1-0-29" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609740"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-30"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.21:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607737" data-cpe-list-toggle="3607737" match-testid="vuln-software-cpe-1-0-30" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607737"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-31"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.22:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609739" data-cpe-list-toggle="3609739" match-testid="vuln-software-cpe-1-0-31" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609739"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-32"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.23:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606832" data-cpe-list-toggle="3606832" match-testid="vuln-software-cpe-1-0-32" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606832"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-33"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.24:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606831" data-cpe-list-toggle="3606831" match-testid="vuln-software-cpe-1-0-33" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606831"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-34"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.25:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606830" data-cpe-list-toggle="3606830" match-testid="vuln-software-cpe-1-0-34" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606830"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-35"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.26:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606829" data-cpe-list-toggle="3606829" match-testid="vuln-software-cpe-1-0-35" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606829"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-36"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.27:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609738" data-cpe-list-toggle="3609738" match-testid="vuln-software-cpe-1-0-36" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609738"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-37"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.28:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607736" data-cpe-list-toggle="3607736" match-testid="vuln-software-cpe-1-0-37" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607736"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-38"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.29:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609737" data-cpe-list-toggle="3609737" match-testid="vuln-software-cpe-1-0-38" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609737"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-39"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.30:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607005" data-cpe-list-toggle="3607005" match-testid="vuln-software-cpe-1-0-39" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607005"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-40"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.31:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607004" data-cpe-list-toggle="3607004" match-testid="vuln-software-cpe-1-0-40" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607004"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-41"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.32:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607003" data-cpe-list-toggle="3607003" match-testid="vuln-software-cpe-1-0-41" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607003"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-42"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.33:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607002" data-cpe-list-toggle="3607002" match-testid="vuln-software-cpe-1-0-42" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607002"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-43"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.34:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607734" data-cpe-list-toggle="3607734" match-testid="vuln-software-cpe-1-0-43" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607734"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-44"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.35:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609736" data-cpe-list-toggle="3609736" match-testid="vuln-software-cpe-1-0-44" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609736"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-45"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.36:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607733" data-cpe-list-toggle="3607733" match-testid="vuln-software-cpe-1-0-45" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607733"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-46"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:6.37:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607732" data-cpe-list-toggle="3607732" match-testid="vuln-software-cpe-1-0-46" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607732"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-47"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609734" data-cpe-list-toggle="3609734" match-testid="vuln-software-cpe-1-0-47" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609734"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-48"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha1:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607731" data-cpe-list-toggle="3607731" match-testid="vuln-software-cpe-1-0-48" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607731"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-49"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha2:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609733" data-cpe-list-toggle="3609733" match-testid="vuln-software-cpe-1-0-49" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609733"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-50"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha3:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607001" data-cpe-list-toggle="3607001" match-testid="vuln-software-cpe-1-0-50" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607001"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-51"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha4:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607000" data-cpe-list-toggle="3607000" match-testid="vuln-software-cpe-1-0-51" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607000"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-52"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha5:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606999" data-cpe-list-toggle="3606999" match-testid="vuln-software-cpe-1-0-52" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606999"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-53"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha6:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606998" data-cpe-list-toggle="3606998" match-testid="vuln-software-cpe-1-0-53" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606998"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-54"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:alpha7:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609732" data-cpe-list-toggle="3609732" match-testid="vuln-software-cpe-1-0-54" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609732"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-55"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:beta1:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607730" data-cpe-list-toggle="3607730" match-testid="vuln-software-cpe-1-0-55" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607730"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-56"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:beta2:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609731" data-cpe-list-toggle="3609731" match-testid="vuln-software-cpe-1-0-56" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609731"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-57"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:beta3:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607729" data-cpe-list-toggle="3607729" match-testid="vuln-software-cpe-1-0-57" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607729"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-58"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:dev:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606823" data-cpe-list-toggle="3606823" match-testid="vuln-software-cpe-1-0-58" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606823"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-59"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:rc1:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606822" data-cpe-list-toggle="3606822" match-testid="vuln-software-cpe-1-0-59" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606822"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-60"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:rc2:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606821" data-cpe-list-toggle="3606821" match-testid="vuln-software-cpe-1-0-60" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606821"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-61"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:rc3:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606820" data-cpe-list-toggle="3606820" match-testid="vuln-software-cpe-1-0-61" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606820"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-62"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.0:rc4:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607728" data-cpe-list-toggle="3607728" match-testid="vuln-software-cpe-1-0-62" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607728"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-63"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.1:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609730" data-cpe-list-toggle="3609730" match-testid="vuln-software-cpe-1-0-63" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609730"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-64"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.2:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609727" data-cpe-list-toggle="3609727" match-testid="vuln-software-cpe-1-0-64" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609727"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-65"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.3:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606990" data-cpe-list-toggle="3606990" match-testid="vuln-software-cpe-1-0-65" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606990"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-66"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.4:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606813" data-cpe-list-toggle="3606813" match-testid="vuln-software-cpe-1-0-66" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606813"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-67"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.5:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606812" data-cpe-list-toggle="3606812" match-testid="vuln-software-cpe-1-0-67" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606812"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-68"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.6:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606811" data-cpe-list-toggle="3606811" match-testid="vuln-software-cpe-1-0-68" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606811"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-69"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.7:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607720" data-cpe-list-toggle="3607720" match-testid="vuln-software-cpe-1-0-69" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607720"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-70"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.8:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609722" data-cpe-list-toggle="3609722" match-testid="vuln-software-cpe-1-0-70" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609722"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-71"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.9:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607719" data-cpe-list-toggle="3607719" match-testid="vuln-software-cpe-1-0-71" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607719"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-72"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.10:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607727" data-cpe-list-toggle="3607727" match-testid="vuln-software-cpe-1-0-72" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607727"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-73"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.11:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609729" data-cpe-list-toggle="3609729" match-testid="vuln-software-cpe-1-0-73" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609729"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-74"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.12:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606997" data-cpe-list-toggle="3606997" match-testid="vuln-software-cpe-1-0-74" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606997"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-75"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.13:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606996" data-cpe-list-toggle="3606996" match-testid="vuln-software-cpe-1-0-75" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606996"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-76"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.14:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606995" data-cpe-list-toggle="3606995" match-testid="vuln-software-cpe-1-0-76" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606995"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-77"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.15:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606994" data-cpe-list-toggle="3606994" match-testid="vuln-software-cpe-1-0-77" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606994"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-78"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.16:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606993" data-cpe-list-toggle="3606993" match-testid="vuln-software-cpe-1-0-78" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606993"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-79"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.17:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607726" data-cpe-list-toggle="3607726" match-testid="vuln-software-cpe-1-0-79" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607726"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-80"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.18:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609728" data-cpe-list-toggle="3609728" match-testid="vuln-software-cpe-1-0-80" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609728"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-81"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.19:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607725" data-cpe-list-toggle="3607725" match-testid="vuln-software-cpe-1-0-81" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607725"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-82"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.20:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606819" data-cpe-list-toggle="3606819" match-testid="vuln-software-cpe-1-0-82" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606819"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-83"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.21:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606818" data-cpe-list-toggle="3606818" match-testid="vuln-software-cpe-1-0-83" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606818"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-84"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.22:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606817" data-cpe-list-toggle="3606817" match-testid="vuln-software-cpe-1-0-84" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606817"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-85"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.23:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606816" data-cpe-list-toggle="3606816" match-testid="vuln-software-cpe-1-0-85" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606816"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-86"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.24:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609726" data-cpe-list-toggle="3609726" match-testid="vuln-software-cpe-1-0-86" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609726"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-87"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.25:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607724" data-cpe-list-toggle="3607724" match-testid="vuln-software-cpe-1-0-87" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607724"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-88"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.26:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609725" data-cpe-list-toggle="3609725" match-testid="vuln-software-cpe-1-0-88" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609725"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-89"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.27:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607723" data-cpe-list-toggle="3607723" match-testid="vuln-software-cpe-1-0-89" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607723"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-90"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.28:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606992" data-cpe-list-toggle="3606992" match-testid="vuln-software-cpe-1-0-90" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606992"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-91"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.29:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606991" data-cpe-list-toggle="3606991" match-testid="vuln-software-cpe-1-0-91" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606991"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-92"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.30:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606989" data-cpe-list-toggle="3606989" match-testid="vuln-software-cpe-1-0-92" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606989"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-93"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.31:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606988" data-cpe-list-toggle="3606988" match-testid="vuln-software-cpe-1-0-93" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606988"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-94"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.32:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606987" data-cpe-list-toggle="3606987" match-testid="vuln-software-cpe-1-0-94" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606987"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-95"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.33:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607722" data-cpe-list-toggle="3607722" match-testid="vuln-software-cpe-1-0-95" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607722"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-96"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.34:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609724" data-cpe-list-toggle="3609724" match-testid="vuln-software-cpe-1-0-96" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609724"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-97"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.35:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607721" data-cpe-list-toggle="3607721" match-testid="vuln-software-cpe-1-0-97" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607721"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-98"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.36:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3609723" data-cpe-list-toggle="3609723" match-testid="vuln-software-cpe-1-0-98" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3609723"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-1-0-99"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:a:drupal:drupal:7.37:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3606815" data-cpe-list-toggle="3606815" match-testid="vuln-software-cpe-1-0-99" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3606815"></span></td>
+</tr></tbody></table></div><br><span data-testid="vuln-configurations-showing-cpes-container-0">Showing 100 of 105 CPE Match Criteria, <a href="/vuln/detail/CVE-2016-3168/cpes">view all CPEs here</a> </span> <strong data-testid="vuln-software-config-2">Configuration 2</strong> (<small><a href="#toggleConfig2" style="text-decoration: underline" id="toggle-configuration-2" data-toggle-config="config-div-2"> hide </a></small>)<br><div id="config-div-2"> <table class="table table-bordered table-hover table-condensed basic"><tbody><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-2-0-0"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:o:debian:debian_linux:7.0:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3611473" data-cpe-list-toggle="3611473" match-testid="vuln-software-cpe-2-0-0" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3611473"></span></td>
+</tr><tr class="vulnerable"><td colspan="3"><b data-testid="vuln-software-cpe-2-0-1"><i class="fa fa-bug fa-flip-vertical"></i> &nbsp;cpe:2.3:o:debian:debian_linux:8.0:*:*:*:*:*:*:*</b><br>&nbsp;&nbsp;&nbsp;<small><a href="#match-3607743" data-cpe-list-toggle="3607743" match-testid="vuln-software-cpe-2-0-1" data-list-depth="2" style="text-decoration: underline">Show Matching CPE(s)<i class="fa fa-caret-down"></i> </a></small><span data-list-cpes="list-cpes-3607743"></span></td>
+</tr></tbody></table></div><br></div>
+        <input type="hidden" id="InputRestBasePath" value="/rest/public">	
+        <input type="hidden" id="cveTreeJsonDataHidden" value="">
+        
+        <p id="vulnCpeInfo">
+            <small>           
+                    <i class="fa fa-bug fa-flip-vertical"></i> Denotes Vulnerable Software<br>
+                    <a href="mailto:cpe_dictionary@nist.gov">Are we missing a CPE here?  Please let us know</a>.<br>
+           
+            </small>
+        </p>
+        	<script src="/site-media/js/vulnerability/configurationListing.js" type="text/javascript"></script>
+	</div>
+									</div>
+									
+									<div id="vulnChangeHistoryDiv" data-testid="vuln-change-history-container">
+										<h3 id="VulnChangeHistorySection">Change History</h3>
+										<small> 2 change records found <a href="#VulnChangeHistorySection" style="text-decoration: underline;" id="changeHistoryToggle">hide changes</a>
+										</small>
+										<div>
+	
+		<div class="vuln-change-history-container" style="">
+			 
+			<h4>
+				<strong><span data-testid="vuln-change-history-type-0">Modified Analysis</span> <span data-testid="vuln-change-history-date-0">4/14/2016 10:33:56 AM</span></strong>
+			</h4>
+
+
+			<table class="table table-striped table-condensed table-bordered detail-table" data-testid="vuln-change-history-table">
+				<thead> 
+					<tr>
+						<th>Action</th>
+						<th>Type</th>
+						<th>Old Value</th>
+						<th>New Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-testid="vuln-change-history-0">
+						<td data-testid="vuln-change-history-0-action">Added</td>
+						<td data-testid="vuln-change-history-0-type">CPE Configuration</td>
+						<td data-testid="vuln-change-history-0-old">
+							
+							
+								
+								
+							
+							
+						</td>
+							
+						<td data-testid="vuln-change-history-0-new">
+							
+								
+								<strong data-testid="vuln-change-history-0-showing">Record truncated, showing 500 of 5877 characters.</strong> <br>
+								
+                             <a href="/vuln/detail/CVE-2016-3168/change-record?changeRecordedOn=04/14/2016T10:33:56.340-0400">View Entire Change Record</a><br>
+								<pre>Configuration 1
+     OR
+          *cpe:2.3:a:drupal:drupal:7.42:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.41:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.40:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.32:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.31:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.x-dev:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.9:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.8:*:*:*:*:*:*:*
+          *cpe:2.3:a:drupal:drupal:7.7:*:*:</pre>
+								
+								
+						</td>
+					</tr>
+					<tr data-testid="vuln-change-history-0">
+						<td data-testid="vuln-change-history-0-action">Added</td>
+						<td data-testid="vuln-change-history-0-type">CVSS V2</td>
+						<td data-testid="vuln-change-history-0-old">
+							
+							
+								
+								
+							
+							
+						</td>
+							
+						<td data-testid="vuln-change-history-0-new">
+							
+								<pre>(AV:N/AC:M/Au:S/C:C/I:C/A:C)</pre>
+								 <br>
+								
+                             <br>
+								
+								
+								
+						</td>
+					</tr>
+					<tr data-testid="vuln-change-history-0">
+						<td data-testid="vuln-change-history-0-action">Added</td>
+						<td data-testid="vuln-change-history-0-type">CVSS V3</td>
+						<td data-testid="vuln-change-history-0-old">
+							
+							
+								
+								
+							
+							
+						</td>
+							
+						<td data-testid="vuln-change-history-0-new">
+							
+								<pre>AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H</pre>
+								 <br>
+								
+                             <br>
+								
+								
+								
+						</td>
+					</tr>
+					<tr data-testid="vuln-change-history-0">
+						<td data-testid="vuln-change-history-0-action">Added</td>
+						<td data-testid="vuln-change-history-0-type">CWE</td>
+						<td data-testid="vuln-change-history-0-old">
+							
+							
+								
+								
+							
+							
+						</td>
+							
+						<td data-testid="vuln-change-history-0-new">
+							
+								<pre>CWE-254</pre>
+								 <br>
+								
+                             <br>
+								
+								
+								
+						</td>
+					</tr>
+					<tr data-testid="vuln-change-history-0">
+						<td data-testid="vuln-change-history-0-action">Changed</td>
+						<td data-testid="vuln-change-history-0-type">Reference Type</td>
+						<td data-testid="vuln-change-history-0-old">
+							
+							
+							
+								<pre>https://www.drupal.org/SA-CORE-2016-001 No Types Assigned</pre>
+								 <br>
+								
+                             <br>
+								
+								
+								
+							
+							
+						</td>
+							
+						<td data-testid="vuln-change-history-0-new">
+							
+								<pre>https://www.drupal.org/SA-CORE-2016-001 Advisory, Patch</pre>
+								 <br>
+								
+                             <br>
+								
+								
+								
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+
+		</div>
+	
+		<div class="vuln-change-history-container" style="">
+			 
+			<h4>
+				<strong><span data-testid="vuln-change-history-type-1">Initial CVE Analysis</span> <span data-testid="vuln-change-history-date-1">4/12/2016 6:24:26 PM</span></strong>
+			</h4>
+
+
+			<table class="table table-striped table-condensed table-bordered detail-table" data-testid="vuln-change-history-table">
+				<thead> 
+					<tr>
+						<th>Action</th>
+						<th>Type</th>
+						<th>Old Value</th>
+						<th>New Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+
+
+
+		</div> 
+	</div>
+										 
+									</div>
+								
+								</div>
+							</div>
+
+
+							<div class="col-lg-3 col-md-5 col-sm-12">
+
+								<div class="bs-callout bs-callout-info">
+									<h4>Quick Info</h4>
+									<strong>CVE Dictionary Entry:</strong><br> <a target="_blank" data-testid="vuln-cve-dictionary-entry" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3168">CVE-2016-3168</a><br> <strong>NVD
+										Published Date:</strong><br> <span data-testid="vuln-published-on">04/12/2016</span><br> <strong>NVD
+										Last Modified:</strong><br> <span data-testid="vuln-last-modified-on">04/14/2016</span><br> <strong>
+										Source:</strong><br> <span data-testid="vuln-current-description-source">MITRE</span><br>
+								</div>
+
+							</div>
+
+						</div>
+
+					</td>
+				</tr>
+			</tbody></table>
+
+		</div>
+	</div>
+	</div>
+	<footer id="footer">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="social-list pull-right">
+						<li class="field-item service-twitter list-horiz"><a href="https://twitter.com/NISTCyber" target="_blank" class="social-btn social-btn--large extlink ext external"> <i class="fa fa-twitter fa-fw"><span class="element-invisible">twitter</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span>
+						</a></li>
+						<li class="field-item service-facebook list-horiz"><a href="https://www.facebook.com/NIST" target="_blank" class="social-btn social-btn--large extlink ext external"> <i class="fa fa-facebook fa-fw"><span class="element-invisible">facebook</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-linkedin list-horiz"><a href="https://www.linkedin.com/company/nist" target="_blank" class="social-btn social-btn--large extlink ext external"> <i class="fa fa-linkedin fa-fw"><span class="element-invisible">linkedin</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-youtube list-horiz"><a href="https://www.youtube.com/user/USNISTGOV" target="_blank" class="social-btn social-btn--large extlink ext external"> <i class="fa fa-youtube fa-fw"><span class="element-invisible">youtube</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-rss list-horiz"><a href="https://www.nist.gov/news-events/nist-rss-feeds" target="_blank" class="social-btn social-btn--large extlink">
+								<i class="fa fa-rss fa-fw"><span class="element-invisible">rss</span></i>
+						</a></li>
+						<li class="field-item service-govdelivery list-horiz last"><a href="https://public.govdelivery.com/accounts/USNIST/subscriber/new?qsp=USNIST_3" target="_blank" class="social-btn social-btn--large extlink ext">
+								<i class="fa fa-envelope fa-fw"><span class="element-invisible">govdelivery</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+						</a></li>
+					</ul>
+					<span class="hidden-xs"> <a title="National Institute of Standards and Technology" rel="home" class="footer-nist-logo"> <img src="/site-media/images/logo_rev.png" alt="National Institute of Standards and Technology logo">
+					</a>
+					</span>
+				</div>
+			</div>
+			<div class="row hidden-sm hidden-md hidden-lg">
+				<div class="col-sm-12">
+					<a href="https://www.nist.gov" title="National Institute of Standards and Technology" rel="home" target="_blank" class="footer-nist-logo"> <img src="/site-media/images/logo_rev.png" alt="National Institute of Standards and Technology logo">
+					</a>
+				</div>
+			</div>
+
+			<div class="row footer-contact-container">
+				<div class="col-sm-6">
+					<strong>HEADQUARTERS</strong>
+					<br>
+					100 Bureau Drive
+					<br>
+					Gaithersburg, MD 20899
+					<br>
+					<a href="tel:301-975-2000" class="external">(301) 975-2000</a>
+					<br>
+					<br>
+					<a href="mailto:nvd@nist.gov">Webmaster</a> | <a href="https://www.nist.gov/about-nist/contact-us">Contact Us</a>
+					| <a href="https://www.nist.gov/about-nist/our-organization" style="display: inline-block;">Our Other Offices</a>
+				</div>
+				<div class="col-sm-6">
+					<div class="pull-right" style="text-align:right">
+						<strong>Incident Response Assistance and Non-NVD Related<br>Technical Cyber Security Questions:</strong>
+						<br>
+						US-CERT Security Operations Center
+						<br> Email: <a href="mailto:soc@us-cert.gov">soc@us-cert.gov</a>
+						<br> Phone:	1-888-282-0870
+						<br>
+						<span style="display: inline-block; text-align: left; margin-left: 0; margin-right: 0;">
+							<strong style="float: right">Sponsored by</strong>
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<a href="https://www.cisa.gov" target="_blank">CISA</a>
+						</span>
+						<a style="float: right; width: 68px;">
+							<img src="/site-media/images/cisa-thumbnail.png" alt="CISA">
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+			    <div class="row footer-bottom-links-container" role="navigation">
+			    <!-- https://github.com/usnistgov/nist-header-footer/blob/nist-pages/boilerplate-footer.html -->
+      				<p>
+			          <a href="https://www.nist.gov/privacy-policy">Site Privacy</a>
+			        |
+			          <a href="https://www.nist.gov/oism/accessibility">Accessibility</a>
+			        |
+			          <a href="https://www.nist.gov/privacy">Privacy Program</a>
+			        |
+			          <a href="https://www.nist.gov/oism/copyrights">Copyrights</a>
+			        |
+			          <a href="https://www.commerce.gov/vulnerability-disclosure-policy">Vulnerability Disclosure</a>
+			        |
+			          <a href="https://www.nist.gov/no-fear-act-policy">No Fear Act Policy</a>
+			        |
+			          <a href="https://www.nist.gov/foia">FOIA</a>
+			        |
+			          <a href="https://www.nist.gov/environmental-policy-statement">Environmental Policy</a>
+					|
+			          <a href="https://www.nist.gov/summary-report-scientific-integrity">Scientific Integrity</a>
+			        |
+			          <a href="https://www.nist.gov/nist-information-quality-standards">Information Quality Standards</a>
+			        |
+			          <a href="https://www.commerce.gov/">Commerce.gov</a>
+			        |
+			          <a href="http://www.science.gov/">Science.gov</a>
+			        |
+			          <a href="http://www.usa.gov/">USA.gov</a>
+            		</p>
+    			</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+</body></html>
