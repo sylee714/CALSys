@@ -22,7 +22,8 @@ dir_name = "C:/Users/SYL/Desktop/CALSysLab/Code/Files/0Day-NVD-html-files/"
 
 def extract(file_name):
     cve_data = {}
-    cve_data["cve-id"] = file_name
+    cut_off_index = file_name.index('.')
+    cve_data["cve-id"] = file_name[:cut_off_index]
     refs = []
     with open(os.path.join(dir_name, file_name), 'r') as f:
         # file = open("C:/Users/SYL/Desktop/CALSysLab/Code/Files/NVD-html-files/2015-0012.html", "r")
@@ -94,6 +95,11 @@ def extract(file_name):
                         if ref[0] in new_val.string and "Patch" in new_val.string:
                             print(date.string)
                             print(new_val.string)
+                            month, day, year = date.string.split()[0].split('/')
+                            # Check the date and update
+                            date_obj = datetime.datetime(int(year), int(month), int(day))
+                            ref[1] = date_obj
+                    # Old -------------------------------
                     # 1st element is the hyperlink
                     # ref_link = new_val.string.split()[0]
                     # for ref in refs:
@@ -107,20 +113,23 @@ def extract(file_name):
                         #     else:
                         #         if ref[1] > date_obj:
                         #             ref[1] = date_obj
-    # cve_data["refs"] = refs
-    # return cve_data
+    cve_data["refs"] = refs
+    return cve_data
 
-# data = []
-# file_names = os.listdir(dir_name)
-# for filename in os.listdir(dir_name):
-#     data.append(extract(filename))
-#
-# final_data = json.dumps(data, indent=4, default=str)
-# with open('cve_refs_data.json', 'w') as outfile:
-#     outfile.write(final_data)
+data = []
+file_names = os.listdir(dir_name)
+print(len(file_names))
+for filename in os.listdir(dir_name):
+    data.append(extract(filename))
+    print("Done: ", filename)
 
-file_path = "CVE-2015-0008.html"
-extract(file_path)
+final_data = json.dumps(data, indent=4, default=str)
+with open('cve_0day_refs_data.json', 'w') as outfile:
+    outfile.write(final_data)
+
+# file_path = "CVE-2015-0008.html"
+# file_path = "CVE-2015-0077.html"
+# extract(file_path)
 
 
 
