@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+from scipy.sparse import hstack
 
 # Columns to drop
 drop_cols = ['CVE-ID', 'ZDI Published Date', 'OG Label', 'In ZDI']

@@ -55,86 +55,98 @@ def clean_text(text):
     return text_no_stop_words_punct
 # -----------------------------------------------
 
-# -----------------------------------------------
-# Main Call
-# Read csv files
-data = pd.read_csv("C:/Users/SYL/Desktop/CALSysLab/Code/Files/filtered_mitre_zdi_data_with_binary.csv")
-# temp_positives = pd.read_csv("../Files/positive_cases.csv")
+zdi_sample_data = pd.read_csv('../Files/zdi_samples.csv')
 
-# Fill 'na' texts with empty strings
-data.fillna('', inplace=True)
+clean_texts = []
 
-# Combine them
-# data.append(temp_positives)
+for index, row in zdi_sample_data.iterrows():
+    clean_texts.append(clean_text(row["Description"]))
 
-print("Printing first 5")
-print(data.head())
-print("-------------------------------------------")
+zdi_sample_data["Description"] = clean_texts
 
-# Find the number of positive cases
-num_real_positive = 0
-for sample in data['New Label']:
-    if sample == 't':
-        num_real_positive = num_real_positive + 1
 
-print("Total # of samples: " + str(len(data)))
-print("Total # of negative samples: " + str(len(data) - num_real_positive))
-print("Total # of positive samples: " + str(num_real_positive))
-print("# of Positive/Total: " + str(num_real_positive / len(data) * 100))
-print("-------------------------------------------")
+zdi_sample_data.to_csv("cleaned_zdi_sample.csv", index=False)
 
-# Preprocess the cve text descriptions
-initial_zdi_descriptions = data["ZDI Description"]
-cleaned_zdi_descriptions = []
-
-print("Before Preprocessing")
-for i in range(5):
-    print(initial_zdi_descriptions[i])
-print("-------------------------------------------")
-
-for sent in initial_zdi_descriptions:
-    cleaned_zdi_descriptions.append(clean_text(sent))
-
-print("After Preprocessing")
-for i in range(5):
-    print(cleaned_zdi_descriptions[i])
-print("-------------------------------------------")
-
-data["ZDI Description"] = cleaned_zdi_descriptions
-
+# # -----------------------------------------------
+# # Main Call
+# # Read csv files
+# data = pd.read_csv("C:/Users/SYL/Desktop/CALSysLab/Code/Files/filtered_mitre_zdi_data_with_binary.csv")
+# # temp_positives = pd.read_csv("../Files/positive_cases.csv")
+#
+# # Fill 'na' texts with empty strings
+# data.fillna('', inplace=True)
+#
+# # Combine them
+# # data.append(temp_positives)
+#
 # print("Printing first 5")
 # print(data.head())
 # print("-------------------------------------------")
-
-# print("Sorted by date")
-# data['MITRE Assign Date'] = pd.to_datetime(data["MITRE Assign Date"])
-# sorted_data = data.sort_values(by=['MITRE Assign Date'])
-# print(data.columns)
+#
+# # Find the number of positive cases
+# num_real_positive = 0
+# for sample in data['New Label']:
+#     if sample == 't':
+#         num_real_positive = num_real_positive + 1
+#
+# print("Total # of samples: " + str(len(data)))
+# print("Total # of negative samples: " + str(len(data) - num_real_positive))
+# print("Total # of positive samples: " + str(num_real_positive))
+# print("# of Positive/Total: " + str(num_real_positive / len(data) * 100))
 # print("-------------------------------------------")
-
-# positive_cases = sorted_data.loc[sorted_data["Label"] == 't']
-
-# positive_cases_dates = positive_cases['MITRE Assign Date']
-# print("Positive Cases")
-# print("Max Date: ", positive_cases_dates.max())
-# print("Min Date: ", positive_cases_dates.min())
+#
+# # Preprocess the cve text descriptions
+# initial_zdi_descriptions = data["ZDI Description"]
+# cleaned_zdi_descriptions = []
+#
+# print("Before Preprocessing")
+# for i in range(5):
+#     print(initial_zdi_descriptions[i])
 # print("-------------------------------------------")
-
-# negative_cases = sorted_data.loc[sorted_data["Label"] == 'f']
-
-# negative_cases_dates = negative_cases['MITRE Assign Date']
-# print("Positive Cases")
-# print("Max Date: ", negative_cases_dates.max())
-# print("Min Date: ", negative_cases_dates.min())
+#
+# for sent in initial_zdi_descriptions:
+#     cleaned_zdi_descriptions.append(clean_text(sent))
+#
+# print("After Preprocessing")
+# for i in range(5):
+#     print(cleaned_zdi_descriptions[i])
 # print("-------------------------------------------")
-
-# print(len(sorted_data))
-# print(len(positive_cases))
-# print(positive_cases.head())
-# print(len(negative_cases))
-
-# positive_cases.to_csv("sorted_positive_cases.csv", index=False)
-# negative_cases.to_csv("sorted_negative_cases.csv", index=False)
-data.to_csv("preprocessed_filtered_mitre_zdi_data.csv", index=False)
-
-
+#
+# data["ZDI Description"] = cleaned_zdi_descriptions
+#
+# # print("Printing first 5")
+# # print(data.head())
+# # print("-------------------------------------------")
+#
+# # print("Sorted by date")
+# # data['MITRE Assign Date'] = pd.to_datetime(data["MITRE Assign Date"])
+# # sorted_data = data.sort_values(by=['MITRE Assign Date'])
+# # print(data.columns)
+# # print("-------------------------------------------")
+#
+# # positive_cases = sorted_data.loc[sorted_data["Label"] == 't']
+#
+# # positive_cases_dates = positive_cases['MITRE Assign Date']
+# # print("Positive Cases")
+# # print("Max Date: ", positive_cases_dates.max())
+# # print("Min Date: ", positive_cases_dates.min())
+# # print("-------------------------------------------")
+#
+# # negative_cases = sorted_data.loc[sorted_data["Label"] == 'f']
+#
+# # negative_cases_dates = negative_cases['MITRE Assign Date']
+# # print("Positive Cases")
+# # print("Max Date: ", negative_cases_dates.max())
+# # print("Min Date: ", negative_cases_dates.min())
+# # print("-------------------------------------------")
+#
+# # print(len(sorted_data))
+# # print(len(positive_cases))
+# # print(positive_cases.head())
+# # print(len(negative_cases))
+#
+# # positive_cases.to_csv("sorted_positive_cases.csv", index=False)
+# # negative_cases.to_csv("sorted_negative_cases.csv", index=False)
+# data.to_csv("preprocessed_filtered_mitre_zdi_data.csv", index=False)
+#
+#
