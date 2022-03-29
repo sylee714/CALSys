@@ -3,6 +3,16 @@ from bs4 import BeautifulSoup
 import json
 import datetime
 
+# end with com, org
+# just extract the url after "//" to the first '/'?
+def extract_domain_name(url):
+    start_index = url.find("//")
+    temp_new_url = url[start_index+2:]
+    end_index = temp_new_url.find("/")
+    new_url = temp_new_url[:end_index]
+    return new_url
+
+
 # https://www.geeksforgeeks.org/python-convert-list-of-dictionaries-to-json/
 # https://www.programiz.com/python-programming/json
 # https://www.geeksforgeeks.org/how-to-parse-local-html-file-in-python/
@@ -35,7 +45,7 @@ def extract(file_name):
                 if j == 0:
                     tag_a = td.find("a")
                     ref_hyperlink = str(tag_a['href'])
-                    print(ref_hyperlink)
+                    # print(ref_hyperlink)
                 # 2nd Col is the "Resource", which lists each ref's types
                 else:
                     spans = td.find_all("span")
@@ -45,6 +55,8 @@ def extract(file_name):
             # Add the ref
             ref.append(ref_hyperlink)
             ref.append(types)
+            ref.append([])
+            refs.append(ref)
 
         # Change History Section
         history_div = soup.find("div", {"id": "vulnChangeHistoryDiv"})
@@ -74,13 +86,13 @@ def extract(file_name):
                 # https://www.educative.io/edpresso/how-to-convert-a-string-to-a-date-in-python
                 if ("Added" in action_val or "Changed" in action_val) and "Reference" in type_val:
                     for ref in refs:
-                        if ref[0] in new_val.string and "Patch" in new_val.string:
-                            print(date.string)
-                            print(new_val.string)
+                        if ref[0] in new_val.string:
+                            # print(date.string)
+                            # print(new_val.string)
                             month, day, year = date.string.split()[0].split('/')
                             # Check the date and update
                             date_obj = datetime.datetime(int(year), int(month), int(day))
-                            ref[2] = date_obj
+                            ref[2].append(date_obj)
                     # Old -------------------------------
                     # 1st element is the hyperlink
                     # ref_link = new_val.string.split()[0]
@@ -95,27 +107,27 @@ def extract(file_name):
                         #     else:
                         #         if ref[1] > date_obj:
                         #             ref[1] = date_obj
+        for ref in refs:
+            ref[0] = extract_domain_name(ref[0])
+
+        for ref in refs:
+            print(ref)
+
     cve_data["refs"] = refs
     return cve_data
 
 
 dir_name = "C:/Users/SYL/Desktop/CALSysLab/Code/Files/0Day-NVD-html-files/"
+data = []
+file_names = os.listdir(dir_name)
+print(len(file_names))
+for filename in os.listdir(dir_name):
+    data.append(extract(filename))
+    print("Done: ", filename)
 
-# data = []
-# file_names = os.listdir(dir_name)
-# print(len(file_names))
-# for filename in os.listdir(dir_name):
-#     data.append(extract(filename))
-#     print("Done: ", filename)
-#
-# final_data = json.dumps(data, indent=4, default=str)
-# with open('cve_0day_refs_data.json', 'w') as outfile:
-#     outfile.write(final_data)
+final_data = json.dumps(data, indent=4, default=str)
+with open('cve_0day_refs_analyze_data.json', 'w') as outfile:
+    outfile.write(final_data)
 
-# file_path = "CVE-2015-0008.html"
-# file_path = "CVE-2015-0077.html"
-# extract(file_path)
-
-extract("C:/Users/SYL/Desktop/CALSysLab/Code/Files/0Day-NVD-html-files/CVE-2015-0009.html")
 
 
