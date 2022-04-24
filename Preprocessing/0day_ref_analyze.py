@@ -137,7 +137,6 @@ def cve_0day_refs_data_processor():
 
 # cve_0day_refs_data_processor()
 
-
 data = pd.read_csv("zero_day_refs_analyze.csv")
 data["Total"] = data.sum(axis=1)
 total_top_ten = data.nlargest(10, 'Total')
@@ -160,8 +159,11 @@ us_gov_resource_top_ten = data.nlargest(10, 'US Government Resource')
 vdb_entry_top_ten = data.nlargest(10, 'VDB Entry')
 vendor_advisory_top_ten = data.nlargest(10, 'Vendor Advisory')
 
-vendor_advisory_top_ten.plot.bar(x="URL", y="Vendor Advisory", rot=70, title="Vendor Advisory Top 10")
-plt.show()
+# vendor_advisory_top_ten.plot.bar(x="URL", y="Vendor Advisory", rot=70, title="Vendor Advisory Top 10")
+# plt.show()
+
+# print(vdb_entry_top_ten)
+print(data.shape)
 
 
 
