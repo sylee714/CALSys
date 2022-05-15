@@ -33,6 +33,7 @@ encoder.fit(train_df[['CWE ID']])
 
 # One-hot encoding transform on the whole data set
 encoder_df = pd.DataFrame(encoder.transform(combined_df[['CWE ID']]).toarray())
+encoder_df.columns = encoder.get_feature_names(['CWE ID'])
 
 # Need to reset the index before doing 'concat' or 'join' to avoid weird mix of indices
 combined_df.reset_index(drop=True, inplace=True)
